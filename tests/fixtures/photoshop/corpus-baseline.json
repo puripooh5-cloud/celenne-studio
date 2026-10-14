@@ -1,0 +1,717 @@
+{
+  "about": "Largest and 99th-percentile difference (0..255, per pixel, max over channels) between Celenne's render and the composite Photoshop 26.5 stored in each corpus file. tests/psd/photoshop-corpus.test.ts fails when a file gets worse; regenerate after an improvement.",
+  "files": {
+    "adj-blackwhite": {
+      "max": 1,
+      "p99": 1
+    },
+    "adj-blackwhite-tint": {
+      "max": 5,
+      "p99": 2,
+      "note": "Black & White with tint: small differences."
+    },
+    "adj-brightness": {
+      "max": 2,
+      "p99": 1
+    },
+    "adj-brightness-legacy": {
+      "max": 1,
+      "p99": 1
+    },
+    "adj-channelmixer": {
+      "max": 1,
+      "p99": 1
+    },
+    "adj-clipped": {
+      "max": 2,
+      "p99": 2
+    },
+    "adj-colorbalance": {
+      "max": 3,
+      "p99": 2
+    },
+    "adj-curves": {
+      "max": 2,
+      "p99": 2
+    },
+    "adj-exposure": {
+      "max": 12,
+      "p99": 1,
+      "note": "A few very dark pixels (lookup-table resolution)."
+    },
+    "adj-gradientmap": {
+      "max": 6,
+      "p99": 6,
+      "note": "Gradient Map: small differences in a three-stop gradient."
+    },
+    "adj-huesat": {
+      "max": 6,
+      "p99": 2,
+      "note": "Hue/Saturation colour ranges with a master edit: a few pastel reds differ by up to 6."
+    },
+    "adj-huesat-colorize": {
+      "max": 4,
+      "p99": 4
+    },
+    "adj-in-group": {
+      "max": 1,
+      "p99": 1
+    },
+    "adj-invert": {
+      "max": 0,
+      "p99": 0
+    },
+    "adj-levels": {
+      "max": 4,
+      "p99": 2
+    },
+    "adj-masked-opacity": {
+      "max": 2,
+      "p99": 1
+    },
+    "adj-photofilter": {
+      "max": 4,
+      "p99": 2
+    },
+    "adj-posterize": {
+      "max": 64,
+      "p99": 0,
+      "note": "Pixels exactly at a level boundary flip (Photoshop composites in integers)."
+    },
+    "adj-selectivecolor": {
+      "max": 2,
+      "p99": 1
+    },
+    "adj-threshold": {
+      "max": 255,
+      "p99": 0,
+      "note": "Pixels exactly at the threshold flip (Photoshop composites in integers)."
+    },
+    "adj-vibrance": {
+      "max": 2,
+      "p99": 1
+    },
+    "aprobe-bc-b35c40": {
+      "max": 1,
+      "p99": 1
+    },
+    "aprobe-bc-chart": {
+      "max": 1,
+      "p99": 1
+    },
+    "aprobe-cb-mid": {
+      "max": 2,
+      "p99": 2
+    },
+    "aprobe-exp-all": {
+      "max": 1,
+      "p99": 1
+    },
+    "aprobe-hs-colorize": {
+      "max": 3,
+      "p99": 3
+    },
+    "aprobe-hs-s25": {
+      "max": 3,
+      "p99": 2
+    },
+    "aprobe-post-5": {
+      "max": 0,
+      "p99": 0
+    },
+    "bcsweep-b-60c50": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-color": {
+      "max": 2,
+      "p99": 2
+    },
+    "blend-colorBurn": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-colorDodge": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-darken": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-darkerColor": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-difference": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-dissolve": {
+      "max": 201,
+      "p99": 199,
+      "note": "Dissolve uses a different random pattern than Photoshop (same density)."
+    },
+    "blend-divide": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-exclusion": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-hardLight": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-hardMix": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-hue": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-lighten": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-lighterColor": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-linearBurn": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-linearDodge": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-linearLight": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-luminosity": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-multiply": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-normal": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-overlay": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-pinLight": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-saturation": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-screen": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-softLight": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-subtract": {
+      "max": 1,
+      "p99": 1
+    },
+    "blend-vividLight": {
+      "max": 2,
+      "p99": 1
+    },
+    "cbprobe-combo-1": {
+      "max": 3,
+      "p99": 3
+    },
+    "celenne-blendif-gray": {
+      "max": 1,
+      "p99": 1
+    },
+    "celenne-blendif-red": {
+      "max": 2,
+      "p99": 2
+    },
+    "celenne-blendif-under": {
+      "max": 1,
+      "p99": 1
+    },
+    "channels-restricted": {
+      "max": 0,
+      "p99": 0
+    },
+    "clip-chain": {
+      "max": 1,
+      "p99": 1
+    },
+    "cmyk-adjustments": {
+      "max": 16,
+      "p99": 8,
+      "note": "Hue/Saturation and Curves in CMYK: small differences."
+    },
+    "cmyk-stack": {
+      "max": 1,
+      "p99": 1
+    },
+    "cmyk16-stack": {
+      "max": 0.01,
+      "p99": 0.01
+    },
+    "depth16-curves": {
+      "max": 0.02,
+      "p99": 0.01
+    },
+    "depth16-stack": {
+      "max": 0.01,
+      "p99": 0.01
+    },
+    "depth32-exposure": {
+      "max": 0,
+      "p99": 0
+    },
+    "depth32-stack": {
+      "max": 0,
+      "p99": 0
+    },
+    "fill-colorBurn": {
+      "max": 2,
+      "p99": 1
+    },
+    "fill-colorDodge": {
+      "max": 1,
+      "p99": 1
+    },
+    "fill-difference": {
+      "max": 1,
+      "p99": 1
+    },
+    "fill-hardMix": {
+      "max": 2,
+      "p99": 1
+    },
+    "fill-linearBurn": {
+      "max": 1,
+      "p99": 1
+    },
+    "fill-linearDodge": {
+      "max": 1,
+      "p99": 1
+    },
+    "fill-linearLight": {
+      "max": 2,
+      "p99": 2
+    },
+    "fill-multiply": {
+      "max": 1,
+      "p99": 1
+    },
+    "fill-normal": {
+      "max": 1,
+      "p99": 1
+    },
+    "fill-solid": {
+      "max": 1,
+      "p99": 1
+    },
+    "fill-vividLight": {
+      "max": 1,
+      "p99": 1
+    },
+    "fillgrad-angle": {
+      "max": 1,
+      "p99": 1
+    },
+    "fillgrad-diamond": {
+      "max": 4,
+      "p99": 3
+    },
+    "fillgrad-linear": {
+      "max": 3,
+      "p99": 2
+    },
+    "fillgrad-radial": {
+      "max": 1,
+      "p99": 1
+    },
+    "fillgrad-reflected": {
+      "max": 1,
+      "p99": 1
+    },
+    "fillgrad-scaled-reversed": {
+      "max": 3,
+      "p99": 2
+    },
+    "fx-bevel-chisel": {
+      "max": 41,
+      "p99": 13,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-bevel-down-soften": {
+      "max": 19,
+      "p99": 4,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-bevel-emboss": {
+      "max": 44,
+      "p99": 6,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-bevel-inner": {
+      "max": 5,
+      "p99": 2,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-bevel-inner-big": {
+      "max": 2,
+      "p99": 1
+    },
+    "fx-bevel-outer": {
+      "max": 43,
+      "p99": 2,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-bevel-pillow": {
+      "max": 44,
+      "p99": 6,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-coloroverlay": {
+      "max": 0,
+      "p99": 0
+    },
+    "fx-combo": {
+      "max": 78,
+      "p99": 1,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-dropshadow": {
+      "max": 1,
+      "p99": 1
+    },
+    "fx-dropshadow-big": {
+      "max": 1,
+      "p99": 1
+    },
+    "fx-dropshadow-color": {
+      "max": 1,
+      "p99": 1
+    },
+    "fx-dropshadow-hard": {
+      "max": 1,
+      "p99": 0
+    },
+    "fx-dropshadow-spread": {
+      "max": 9,
+      "p99": 5,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-gradientoverlay": {
+      "max": 1,
+      "p99": 1
+    },
+    "fx-gradientoverlay-radial": {
+      "max": 1,
+      "p99": 1
+    },
+    "fx-innerglow-center": {
+      "max": 1,
+      "p99": 1
+    },
+    "fx-innerglow-edge": {
+      "max": 2,
+      "p99": 1
+    },
+    "fx-innershadow": {
+      "max": 1,
+      "p99": 1
+    },
+    "fx-innershadow-choke": {
+      "max": 5,
+      "p99": 3,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-outerglow": {
+      "max": 5,
+      "p99": 1,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-outerglow-precise": {
+      "max": 5,
+      "p99": 1,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-outerglow-spread": {
+      "max": 36,
+      "p99": 7,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-satin": {
+      "max": 11,
+      "p99": 9,
+      "note": "Satin: Photoshop's falloff is not yet matched (within 11/255)."
+    },
+    "fx-stroke-center": {
+      "max": 107,
+      "p99": 14,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-stroke-inside": {
+      "max": 40,
+      "p99": 0,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-stroke-outside": {
+      "max": 81,
+      "p99": 0,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fx-stroke-thin": {
+      "max": 75,
+      "p99": 0,
+      "note": "Layer effect on a curved anti-aliased edge: a few edge pixels differ (straight edges match within 1/255)."
+    },
+    "fxp-bv-chisel-10-shade": {
+      "max": 14,
+      "p99": 9,
+      "note": "Chisel bevel where the shape meets the document edge."
+    },
+    "fxp-bv-outer-10-lit": {
+      "max": 1,
+      "p99": 0
+    },
+    "fxp-bv-pillow-10-lit": {
+      "max": 2,
+      "p99": 1
+    },
+    "fxp-bv-smooth-10-lit": {
+      "max": 1,
+      "p99": 1
+    },
+    "fxp-ds-10-spread50": {
+      "max": 2,
+      "p99": 0
+    },
+    "fxp-ds-40": {
+      "max": 1,
+      "p99": 0
+    },
+    "fxp-ig-10": {
+      "max": 1,
+      "p99": 1
+    },
+    "fxp-og-10-range25": {
+      "max": 1,
+      "p99": 1
+    },
+    "fxp-ogp-10": {
+      "max": 1,
+      "p99": 1
+    },
+    "fxp-st-ctr-4": {
+      "max": 0,
+      "p99": 0
+    },
+    "gray-stack": {
+      "max": 1,
+      "p99": 1
+    },
+    "group-blend-screen": {
+      "max": 2,
+      "p99": 1
+    },
+    "group-isolated": {
+      "max": 1,
+      "p99": 1
+    },
+    "group-mask": {
+      "max": 0,
+      "p99": 0
+    },
+    "group-nested": {
+      "max": 1,
+      "p99": 1
+    },
+    "group-passthrough": {
+      "max": 1,
+      "p99": 1
+    },
+    "knockout-shallow": {
+      "max": 1,
+      "p99": 1
+    },
+    "lab-stack": {
+      "max": 41,
+      "p99": 41,
+      "note": "8-bit Lab blend modes: Photoshop blends 8-bit Lab differently (16-bit matches)."
+    },
+    "lab16-stack": {
+      "max": 2.49,
+      "p99": 2.39
+    },
+    "mask-density-feather": {
+      "max": 1,
+      "p99": 1
+    },
+    "mask-disabled": {
+      "max": 0,
+      "p99": 0
+    },
+    "mask-feathered": {
+      "max": 0,
+      "p99": 0
+    },
+    "mask-vector": {
+      "max": 11,
+      "p99": 0,
+      "note": "Vector-mask anti-aliasing at the edge."
+    },
+    "pp-cb-big-pres": {
+      "max": 0,
+      "p99": 0
+    },
+    "pp-cb-hi2-pres": {
+      "max": 0,
+      "p99": 0
+    },
+    "pp-cb-sh2-pres": {
+      "max": 0,
+      "p99": 0
+    },
+    "pp-hs-cyans-lm40": {
+      "max": 2,
+      "p99": 2
+    },
+    "pp-hs-master": {
+      "max": 18,
+      "p99": 5,
+      "note": "Hue/Saturation colour range with a master edit: pastel reds differ by up to 18 (99 % within 5)."
+    },
+    "pp-hs-reds-s40": {
+      "max": 3,
+      "p99": 2
+    },
+    "pp-hs-wide": {
+      "max": 3,
+      "p99": 2
+    },
+    "pp-pf-cool-d100-pres": {
+      "max": 6,
+      "p99": 2,
+      "note": "Photo Filter with Preserve Luminosity: saturated colours at the gamut edge differ by up to 6."
+    },
+    "pp-pf-ramp-green": {
+      "max": 1,
+      "p99": 1
+    },
+    "pp-pf-warm-d50": {
+      "max": 1,
+      "p99": 1
+    },
+    "pp-sc-blacks-m60-rel": {
+      "max": 0,
+      "p99": 0
+    },
+    "pp-sc-neutrals-c60-abs": {
+      "max": 0,
+      "p99": 0
+    },
+    "pp-sc-reds-k60-rel": {
+      "max": 1,
+      "p99": 1
+    },
+    "pp-vib-s-100": {
+      "max": 1,
+      "p99": 1
+    },
+    "pp-vib-v-100": {
+      "max": 2,
+      "p99": 1
+    },
+    "pp-vib-v60s-20": {
+      "max": 2,
+      "p99": 1
+    },
+    "probe-fill50-colorDodge": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-fill50-hardMix": {
+      "max": 2,
+      "p99": 2
+    },
+    "probe-fill50-vividLight": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-geom-ang-45": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-geom-dmd-30": {
+      "max": 5,
+      "p99": 4,
+      "note": "Rotated diamond gradient: small differences."
+    },
+    "probe-geom-lin-30": {
+      "max": 2,
+      "p99": 1
+    },
+    "probe-geom-rfl-30": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-gmap-lum": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-gmap-ramp": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-grad-bw-rmid25-s100": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-grad-mono4-s100": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-grad-ryb-linear": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-grad-ryb-s100": {
+      "max": 1,
+      "p99": 1
+    },
+    "probe-perc-ryb-s0": {
+      "max": 1,
+      "p99": 1
+    },
+    "pv-vib-v85s0": {
+      "max": 5,
+      "p99": 3,
+      "note": "Vibrance between measured levels on random colours: interpolated from Photoshop's tables (99 % within 3)."
+    },
+    "smart-plain": {
+      "max": 0,
+      "p99": 0
+    },
+    "smart-transformed": {
+      "max": 2,
+      "p99": 1
+    }
+  }
+}

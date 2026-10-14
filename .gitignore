@@ -1,0 +1,22 @@
+node_modules/
+dist/
+dist-electron/
+release/
+release-*/
+tests/visual/report/
+*.cpuprofile
+tests/fixtures/raw/*
+!tests/fixtures/raw/samples.json
+third_party/libraw/build/
+third_party/libraw/LibRaw-*/
+
+# This copy's own release settings (update address, error-report DSN): never public
+celenne.release.local.json
+env.ps1
+*.key
+
+# Local tools and scratch files
+.claude/
+scratch/
+/x
+*.log

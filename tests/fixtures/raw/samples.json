@@ -1,0 +1,106 @@
+{
+ "about": "Camera raw samples for tests (raw.pixls.us, all CC0 public domain). Not stored in the repository: run node scripts/raw/fetch-samples.mjs. Tests that need them are skipped when absent.",
+ "license": "CC0 1.0",
+ "source": "https://raw.pixls.us",
+ "files": [
+  {
+   "make": "Canon",
+   "model": "EOS 6D",
+   "url": "https://raw.pixls.us/getfile.php/1427/nice/Canon - EOS 6D - RAW (3:2).CR2",
+   "name": "Canon - EOS 6D - RAW (3:2).CR2",
+   "sha256": "08c7e7f32af01c4501a5f32ccecb7f35b8692e72566d60607e391e9f1053f4a5",
+   "size": "22.59MB",
+   "file": "Canon-EOS6D.cr2"
+  },
+  {
+   "make": "Canon",
+   "model": "EOS M50",
+   "url": "https://raw.pixls.us/getfile.php/4656/nice/Canon - EOS M50 - 3:2.CR3",
+   "name": "Canon - EOS M50 - 3:2.CR3",
+   "sha256": "27a88fdae82516ba136e12c2cc9b934f25dbaaac24d64ab4e5517f8524463594",
+   "size": "14.16MB",
+   "file": "Canon-EOSM50.cr3"
+  },
+  {
+   "make": "Nikon",
+   "model": "Z 6",
+   "url": "https://raw.pixls.us/getfile.php/3581/nice/Nikon - Z 6 - 14bit 14bit compressed (3:2).NEF",
+   "name": "Nikon - Z 6 - 14bit 14bit compressed (3:2).NEF",
+   "sha256": "8ca94584578b35a422744c1a610174ce37df0691588edfdecaec3111b3fbbb02",
+   "size": "24.79MB",
+   "file": "Nikon-Z6.nef"
+  },
+  {
+   "make": "Nikon",
+   "model": "D750",
+   "url": "https://raw.pixls.us/getfile.php/898/nice/Nikon - D750 - 14bit 14bit compressed (Lossless) (3:2).NEF",
+   "name": "Nikon - D750 - 14bit 14bit compressed (Lossless) (3:2).NEF",
+   "sha256": "f90deb2819863f5a6ca9913c255fdd83a94963f4284eb88df9d389da7a6c7665",
+   "size": "25.12MB",
+   "file": "Nikon-D750.nef"
+  },
+  {
+   "make": "Sony",
+   "model": "ILCE-7M3",
+   "url": "https://raw.pixls.us/getfile.php/2414/nice/Sony - ILCE-7M3 - 14bit 14bit compressed (3:2).ARW",
+   "name": "Sony - ILCE-7M3 - 14bit 14bit compressed (3:2).ARW",
+   "sha256": "250784580ea527442c09004417bb0eead484f2bf3ee8f9121a776ac65bb50d0f",
+   "size": "24.45MB",
+   "file": "Sony-ILCE-7M3.arw"
+  },
+  {
+   "make": "Fujifilm",
+   "model": "X-T3",
+   "url": "https://raw.pixls.us/getfile.php/2783/nice/Fujifilm - X-T3 - 14bit 14bit compressed (3:2).RAF",
+   "name": "Fujifilm - X-T3 - 14bit 14bit compressed (3:2).RAF",
+   "sha256": "95b33021160b239ceb1a09d46a1b29cb60cb7dd47581feb126b337c219091754",
+   "size": "26.05MB",
+   "file": "Fujifilm-X-T3.raf"
+  },
+  {
+   "make": "Olympus",
+   "model": "E-M1MarkII",
+   "url": "https://raw.pixls.us/getfile.php/1993/nice/Olympus - E-M1MarkII - 16bit (4:3).ORF",
+   "name": "Olympus - E-M1MarkII - 16bit (4:3).ORF",
+   "sha256": "0b433019e5fa61548d7eb0eb7bb90894251542c056da72355202382696d0ceb8",
+   "size": "16.46MB",
+   "file": "Olympus-E-M1MarkII.orf"
+  },
+  {
+   "make": "Panasonic",
+   "model": "DC-G9",
+   "url": "https://raw.pixls.us/getfile.php/3218/nice/Panasonic - DC-G9 - 3:2.RW2",
+   "name": "Panasonic - DC-G9 - 3:2.RW2",
+   "sha256": "83a4f4d703e17a0d1e92fbd1dbd960c3d9313f09bd3e562c58ebb5808e35b5f3",
+   "size": "23.09MB",
+   "file": "Panasonic-DC-G9.rw2"
+  },
+  {
+   "make": "Pentax",
+   "model": "KP",
+   "url": "https://raw.pixls.us/getfile.php/1825/nice/Pentax - KP - 14bit (3:2).PEF",
+   "name": "Pentax - KP - 14bit (3:2).PEF",
+   "sha256": "19169ca872551dea1bbc6240343fe28e5b731975ccab64b260dd224a8cd3d17a",
+   "size": "30.81MB",
+   "file": "Pentax-KP.pef"
+  },
+  {
+   "make": "Pentax",
+   "model": "KP",
+   "url": "https://raw.pixls.us/getfile.php/1824/nice/Pentax - KP - 14bit (3:2).DNG",
+   "name": "Pentax - KP - 14bit (3:2).DNG",
+   "sha256": "16b09cb3032003989877659ae03cbb6985e3d7e84f1402863ccae8af10033c1c",
+   "size": "31.14MB",
+   "file": "Pentax-KP.dng"
+  },
+  {
+   "make": "Samsung",
+   "model": "NX500",
+   "url": "https://raw.pixls.us/getfile.php/3669/nice/Samsung - NX500 - 12bit 12bit lossless compression (3:2).SRW",
+   "name": "Samsung - NX500 - 12bit 12bit lossless compression (3:2).SRW",
+   "sha256": "77ed2a18ca6923a0c1f3a9ad41ade3676136a3272dfe6bf0d8f53d03b0c8db3d",
+   "size": "25.03MB",
+   "file": "Samsung-NX500.srw"
+  }
+ ]
+}

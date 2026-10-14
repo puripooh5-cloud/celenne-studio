@@ -1,0 +1,107 @@
+{
+  "manifest": {
+    "id": "celenne.sample.vignette",
+    "name": "Vignette & PPM (sample)",
+    "version": "1.0.0",
+    "author": "Celenne Studio",
+    "description": "Adds Filter ▸ Other ▸ Vignette, a PPM exporter and importer, a Spray tool, a \"Duplicate and Hide Original\" script and an info panel.",
+    "apiVersion": 1,
+    "contributes": {
+      "filters": [
+        {
+          "id": "vignette",
+          "name": "Vignette",
+          "category": "Other",
+          "params": [
+            {
+              "type": "number",
+              "id": "amount",
+              "label": "Amount",
+              "min": 0,
+              "max": 100,
+              "default": 50,
+              "unit": "%"
+            },
+            {
+              "type": "number",
+              "id": "radius",
+              "label": "Radius",
+              "min": 10,
+              "max": 150,
+              "default": 80,
+              "unit": "%"
+            },
+            {
+              "type": "number",
+              "id": "softness",
+              "label": "Softness",
+              "min": 1,
+              "max": 100,
+              "default": 60,
+              "unit": "%"
+            }
+          ]
+        }
+      ],
+      "exporters": [
+        {
+          "id": "ppm",
+          "label": "Portable Pixmap (PPM)",
+          "extension": "ppm"
+        }
+      ],
+      "importers": [
+        {
+          "id": "ppm",
+          "label": "Portable Pixmap (PPM)",
+          "extensions": [
+            "ppm",
+            "pnm"
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "id": "spray",
+          "name": "Spray",
+          "padding": 40,
+          "params": [
+            {
+              "type": "number",
+              "id": "radius",
+              "label": "Radius",
+              "min": 2,
+              "max": 200,
+              "default": 24,
+              "unit": "px"
+            },
+            {
+              "type": "number",
+              "id": "density",
+              "label": "Density",
+              "min": 1,
+              "max": 100,
+              "default": 30,
+              "unit": "%"
+            }
+          ]
+        }
+      ],
+      "scripts": [
+        {
+          "id": "dupHide",
+          "name": "Duplicate and Hide Original",
+          "description": "Duplicates the active layer and hides the original."
+        }
+      ],
+      "panels": [
+        {
+          "id": "about",
+          "title": "Sample Plugin",
+          "html": "<body style=\"font:12px system-ui;color:#ddd;background:#2b2b2b;margin:12px\"><h3 style=\"margin:0 0 8px\">Sample plugin panel</h3><p>This panel runs in a sandboxed iframe with no access to the app, the file system or the network.</p><button onclick=\"document.getElementById('n').textContent=++window.c||(window.c=1)\">Click</button> <span id=\"n\">0</span></body>"
+        }
+      ]
+    }
+  },
+  "code": "\ncelenne.registerFilter('vignette', (img, p, ctx) => {\n  const { width: w, height: h, data } = img;\n  const amount = (p.amount ?? 50) / 100, radius = (p.radius ?? 80) / 100, soft = Math.max(0.01, (p.softness ?? 60) / 100);\n  const cx = w / 2, cy = h / 2, maxR = Math.hypot(cx, cy) * radius;\n  for (let y = 0; y < h; y++) {\n    for (let x = 0; x < w; x++) {\n      const d = Math.hypot(x - cx, y - cy) / maxR;\n      const t = Math.min(1, Math.max(0, (d - (1 - soft)) / soft));\n      const k = 1 - amount * t * t * (3 - 2 * t);\n      const i = (y * w + x) * 4;\n      data[i] *= k; data[i + 1] *= k; data[i + 2] *= k;\n    }\n    if ((y & 63) === 0) ctx.progress(y / h);\n  }\n  return img;\n});\n\ncelenne.registerExporter('ppm', (img) => {\n  const header = 'P6\\n' + img.width + ' ' + img.height + '\\n255\\n';\n  const out = new Uint8Array(header.length + img.width * img.height * 3);\n  for (let i = 0; i < header.length; i++) out[i] = header.charCodeAt(i);\n  let o = header.length;\n  for (let i = 0; i < img.width * img.height; i++) {\n    const a = img.data[i * 4 + 3] / 255;\n    // Composite over white.\n    out[o++] = img.data[i * 4] * a + 255 * (1 - a);\n    out[o++] = img.data[i * 4 + 1] * a + 255 * (1 - a);\n    out[o++] = img.data[i * 4 + 2] * a + 255 * (1 - a);\n  }\n  return out;\n});\n\n// Binary PPM (P6, 8-bit) importer. Plain-text PNM is rejected with a clear message.\ncelenne.registerImporter('ppm', (bytes) => {\n  let p = 0;\n  const ws = (c) => c === 32 || c === 9 || c === 10 || c === 13;\n  const token = () => {\n    for (;;) {\n      while (p < bytes.length && ws(bytes[p])) p++;\n      if (bytes[p] === 35) { while (p < bytes.length && bytes[p] !== 10) p++; continue; }\n      break;\n    }\n    let s = '';\n    while (p < bytes.length && !ws(bytes[p])) s += String.fromCharCode(bytes[p++]);\n    return s;\n  };\n  if (token() !== 'P6') throw new Error('Only binary PPM (P6) files are supported');\n  const w = parseInt(token(), 10), h = parseInt(token(), 10), max = parseInt(token(), 10);\n  p++;\n  if (!(w > 0 && h > 0 && max > 0 && max < 256)) throw new Error('Unsupported PPM header');\n  if (bytes.length - p < w * h * 3) throw new Error('PPM file is truncated');\n  const data = new Uint8ClampedArray(w * h * 4);\n  for (let i = 0; i < w * h; i++) {\n    data[i * 4] = bytes[p++] * 255 / max; data[i * 4 + 1] = bytes[p++] * 255 / max; data[i * 4 + 2] = bytes[p++] * 255 / max; data[i * 4 + 3] = 255;\n  }\n  return { width: w, height: h, data };\n});\n\n// Spray tool: scatters foreground-colored dots along the stroke.\ncelenne.registerTool('spray', (img, ctx) => {\n  const { width: w, height: h, data } = img;\n  const r = ctx.params.radius ?? 24, n = Math.max(1, Math.round((ctx.params.density ?? 30) / 4));\n  const [fr, fg, fb] = ctx.foreground;\n  let seed = 12345;\n  const rnd = () => ((seed = (seed * 1103515245 + 12345) >>> 0) / 4294967296);\n  for (const pt of ctx.points) {\n    for (let k = 0; k < n; k++) {\n      const a = rnd() * Math.PI * 2, d = Math.sqrt(rnd()) * r * pt.pressure;\n      const x = Math.round(pt.x + Math.cos(a) * d), y = Math.round(pt.y + Math.sin(a) * d);\n      if (x < 0 || y < 0 || x >= w || y >= h) continue;\n      const i = (y * w + x) * 4;\n      data[i] = fr; data[i + 1] = fg; data[i + 2] = fb; data[i + 3] = 1;\n    }\n  }\n  return img;\n});\n\n// Scripts see a read-only description of the document and return app actions to run.\ncelenne.registerScript('dupHide', (doc) => {\n  if (!doc.activeLayerId) return [];\n  return [\n    { action: 'layer.duplicate' },\n    { action: 'layer.selectBelow' },\n    { action: 'layer.toggleVisibility' },\n  ];\n});\n"
+}

@@ -1,0 +1,19 @@
+Celenne Studio is licensed under either of
+
+  * Apache License, Version 2.0 (LICENSE-APACHE or http://www.apache.org/licenses/LICENSE-2.0)
+  * MIT License (LICENSE-MIT or http://opensource.org/licenses/MIT)
+
+at your option. SPDX-License-Identifier: MIT OR Apache-2.0
+
+Copyright (c) 2026 Celenne Studio contributors
+
+Exceptions, which keep their own licences:
+
+  * third_party/libraw/ and src/formats/libraw/: LibRaw, copyright LibRaw LLC,
+    GNU LGPL 2.1 or CDDL 1.0 (see third_party/libraw/).
+  * src/formats/vendor/: the jpeg-js / pdf.js JPEG decoder, Apache License 2.0.
+  * tests/fixtures/third-party/: psd-tools test files, MIT (see the README there).
+
+The name "Celenne Studio" and the application icon (build/icon.png) are not licensed for use
+as the name or logo of another product. "Photoshop" is a trademark of Adobe Inc.; Celenne
+Studio is not affiliated with Adobe.

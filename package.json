@@ -1,0 +1,139 @@
+{
+  "name": "celenne-studio",
+  "productName": "Celenne Studio",
+  "version": "0.3.0",
+  "description": "Professional layered image editor with an editable PSD document architecture",
+  "author": "Celenne Studio contributors",
+  "license": "MIT OR Apache-2.0",
+  "private": true,
+  "type": "module",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "dev:electron": "node scripts/dev-electron.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build:renderer": "vite build",
+    "build:electron": "node scripts/build-electron.mjs",
+    "build": "npm run typecheck && npm run build:renderer && npm run build:electron",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder --win --x64",
+    "dist:dir": "npm run build && electron-builder --win --x64 --dir",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "fixtures": "node scripts/run-ts.mjs scripts/generate-fixtures.ts",
+    "benchmark": "node scripts/run-ts.mjs scripts/benchmark.ts",
+    "visual-regression": "vitest run tests/visual",
+    "icon": "node scripts/run-ts.mjs scripts/generate-icon.ts",
+    "docs": "node scripts/run-ts.mjs scripts/generate-docs.ts",
+    "release": "node scripts/run-ts.mjs scripts/release/release.ts",
+    "release:keygen": "node scripts/run-ts.mjs scripts/release/keygen.ts",
+    "release:serve": "node scripts/run-ts.mjs scripts/release/serve.ts"
+  },
+  "dependencies": {
+    "ag-psd": "^31.0.2",
+    "electron-updater": "^6.8.9",
+    "fast-png": "^8.0.0",
+    "fflate": "^0.8.3",
+    "flexlayout-react": "^0.11.1",
+    "harfbuzzjs": "^1.6.2",
+    "hyphen": "^1.14.1",
+    "lcms-wasm": "^1.0.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "utif2": "^4.1.0",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@webgpu/types": "^0.1.74",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "jsdom": "^30.1.1",
+    "pngjs": "^7.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2",
+    "webgpu": "^0.6.1"
+  },
+  "build": {
+    "appId": "app.celenne.studio",
+    "productName": "Celenne Studio",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "asarUnpack": [
+      "dist/assets/libraw-*.wasm"
+    ],
+    "extraResources": [
+      {
+        "from": "third_party/libraw",
+        "to": "licenses/LibRaw",
+        "filter": [
+          "LibRaw-*.tar.gz",
+          "LICENSE.LGPL",
+          "LICENSE.CDDL",
+          "COPYRIGHT",
+          "README.md",
+          "celenne_libraw.cpp"
+        ]
+      },
+      {
+        "from": "scripts/raw/build-libraw.ps1",
+        "to": "licenses/LibRaw/build-libraw.ps1"
+      }
+    ],
+    "files": [
+      "dist/**/*",
+      "!dist/**/*.map",
+      "dist-electron/*.cjs",
+      "package.json",
+      "!node_modules/**/*"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "psd",
+        "name": "Photoshop Document",
+        "role": "Editor"
+      },
+      {
+        "ext": "psb",
+        "name": "Photoshop Large Document",
+        "role": "Editor"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Celenne-Studio-${version}-setup.${ext}",
+      "createDesktopShortcut": true
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.graphics-design",
+      "icon": "build/icon.png"
+    },
+    "electronDist": "node_modules/electron/dist",
+    "appx": {
+      "artifactName": "Celenne-Studio-${version}-store.${ext}",
+      "displayName": "Celenne Studio",
+      "backgroundColor": "#17181b",
+      "languages": [
+        "en-US"
+      ]
+    }
+  }
+}

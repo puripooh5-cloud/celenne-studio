@@ -1,0 +1,7 @@
+{
+  "$comment": "Release settings baked into the app at build time. See docs/RELEASING.md. Empty = feature off. Put your own values in celenne.release.local.json (git-ignored); they win over this file.",
+  "updateUrl": "",
+  "reportDsn": "",
+  "downloadPage": "",
+  "updatePublicKeyFile": "build/update-signing.pub.pem"
+}
